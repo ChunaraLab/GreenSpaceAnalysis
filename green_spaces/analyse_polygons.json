@@ -1,0 +1,130 @@
+{
+  "loaders": [
+    {
+      "name": "25cm RGB aerial",
+      "class": "green_spaces.image_loaders.OrdnanceSurveyMapLoader",
+      "folder": "in",
+      "format": "RGB",
+      "tile_size": 52
+    }
+  ],
+  "indices": [
+    {
+      "short_name": "naive",
+      "full_name": "Assumes all pixels within polygon are green",
+      "class": "green_spaces.vegetation_analysis.AssumesGreen"
+    },
+    {
+      "short_name": "greenleaf",
+      "full_name": "Green leaf index",
+      "class": "green_spaces.vegetation_analysis.GreenLeafIndex",
+      "threshold_low": 0.0,
+      "threshold_high": 1.0
+    },
+    {
+      "short_name": "hsv",
+      "full_name": "Green from HSV threshold",
+      "class": "green_spaces.vegetation_analysis.GreenFromHSV",
+      "threshold_low": 30,
+      "threshold_high": 80
+    },
+    {
+      "short_name": "ndvi-cir",
+      "full_name": "Normalised difference vegetation index from CIR",
+      "class": "green_spaces.vegetation_analysis.NormalizedDifferenceVegetationIndexCIR",
+      "threshold_low": 0.0,
+      "threshold_high": 1.0
+    },
+    {
+      "short_name": "ndvi-irgb",
+      "full_name": "Normalised difference vegetation index from IRGB",
+      "class": "green_spaces.vegetation_analysis.NormalizedDifferenceVegetationIndexIRGB",
+      "threshold_low": 0.0,
+      "threshold_high": 1.0
+    },
+    {
+      "short_name": "vndvi",
+      "full_name": "Visual Normalised difference vegetation index",
+      "class": "green_spaces.vegetation_analysis.VisualNormalizedDifferenceVegetationIndex",
+      "threshold_low": 0.0,
+      "threshold_high": 1.0
+    },
+    {
+      "short_name": "vari",
+      "full_name": "Visual atmospheric resistance index",
+      "class": "green_spaces.vegetation_analysis.VisualAtmosphericResistanceIndex",
+      "threshold_low": 0.0,
+      "threshold_high": 1.0
+    },
+    {
+      "short_name": "lab1",
+      "full_name": "Green from L*a*b* colour space, 'a' threshold only",
+      "class": "green_spaces.vegetation_analysis.GreenFromLab1",
+      "a_threshold_low": -9999,
+      "a_threshold_high": -11
+    },
+    {
+      "short_name": "lab2",
+      "full_name": "Green from L*a*b* colour space, 'a' and 'b' thresholds",
+      "class": "green_spaces.vegetation_analysis.GreenFromLab2",
+      "a_threshold_low": -9999,
+      "a_threshold_high": -6,
+      "b_threshold_low": 5,
+      "b_threshold_high": 57
+    },
+    {
+      "short_name": "matt",
+      "full_name": "Interpret Ir, G, B as R, G, B and filter by HSV",
+      "class": "green_spaces.vegetation_analysis.MattIrHSV",
+      "h_threshold_low": 0,
+      "h_threshold_high": 10,
+      "s_threshold_low": 125,
+      "s_threshold_high": 255,
+      "v_threshold_low": 20,
+      "v_threshold_high": 255
+    },
+    {
+      "short_name": "matt2",
+      "full_name": "Interpret Ir, G, B as R, G, B and filter by HSV",
+      "class": "green_spaces.vegetation_analysis.Matt2IrHSV",
+      "h1_threshold_low": 0,
+      "h1_threshold_high": 15,
+      "s1_threshold_low": 0,
+      "s1_threshold_high": 255,
+      "v1_threshold_low": 0,
+      "v1_threshold_high": 255,
+      "h2_threshold_low": 160,
+      "h2_threshold_high": 180,
+      "s2_threshold_low": 0,
+      "s2_threshold_high": 255,
+      "v2_threshold_low": 0,
+      "v2_threshold_high": 255
+    },
+    {
+      "short_name": "nn",
+      "full_name": "Neural network vegetation classifier",
+      "class": "green_spaces.vegetation_analysis.NeuralNetworkClassifier",
+
+      "nn_state_path": "12_8_4_all_ANN.h5",
+
+      "monochrome_pca_components_path": "pca_mono.pkl",
+      "monochrome_pca_mean_path": "pca_mono_mean.pkl",
+      "monochrome_pca_min": [-151.6851, -43.19246],
+      "monochrome_pca_max": [262.3443, 69.40648],
+
+      "brightness_pca_components_path": "pca_bright.pkl",
+      "brightness_pca_mean_path": "pca_bright_mean.pkl",
+      "brightness_pca_inputs_min": [8, 15, 8, 22, 11],
+      "brightness_pca_inputs_max": [255, 255, 255, 255, 255],
+      "brightness_pca_min": [-8.459840e-01, -1.820107e-01, -2.020519e-01, -2.920802e-02],
+      "brightness_pca_max": [1.358846e+00, 2.513977e-01, 3.559869e-01, 2.736014e-01],
+
+      "colour_pca_components_path": "pca_colour.pkl",
+      "colour_pca_mean_path": "pca_colour_mean.pkl",
+      "colour_pca_inputs_min": [8, 15, 8, 0, 105, 103],
+      "colour_pca_inputs_max": [255, 255, 255, 179, 174, 168],
+      "colour_pca_min": [-7.957638e-01, -4.348105e-01, -3.928765e-01, -3.462591e-01],
+      "colour_pca_max": [1.033623e+00, 1.051972e+00, 4.325098e-01, 8.134353e-01]
+    }
+  ]
+}
