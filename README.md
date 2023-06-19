@@ -20,7 +20,7 @@ The class each pixel number represents:  ````0 - Background, 1 - Tree, 2 - Shurb
 
 
 ### Green color augmentation
-The augmentation function is in ````green_augmentation.py````, whih returns new greenspace images with shifted hue color. Adjust the parameter ````val_max````, ````val_min```` according to the hue range of the greenspace pixels in your data. Adjust the parameter ````std_dev```` to the shift strength.
+The augmentation function is in ````green_augmentation.py````, whih returns new greenspace images with shifted hue color. Adjust the parameter ````val_max````, ````val_min```` according to the hue range of the greenspace pixels in your data. Adjust the parameter ````std_dev```` to change the shift strength.
 
 
 ## Using vegetation indices
