@@ -10,7 +10,6 @@ Pixel level annotations for three vegetation classes: Tree, Shrub, Grass are mad
 
 
 
-
 Raw satellite images are anquired from Google Maps API. 
 
 Image locations can be found in ```` Image_location.zip ````. It includes the geo-coordinates for each downloaded/labeled image. Source images are not public. 
@@ -20,7 +19,8 @@ Manually labeled masks can be accessed at: https://drive.google.com/drive/folder
 The class each pixel number represents:  ````0 - Background, 1 - Tree, 2 - Shurb, 3 - Grass````.
 
 
-
+### Green color augmentation
+The augmentation function is in ````green_augmentation.py````, whih returns new greenspace images with shifted hue color. Adjust the parameter ````val_max````, ````val_min```` according to the hue range of the greenspace pixels in your data. Adjust the parameter ````std_dev```` to increase/decrease color shift.
 
 
 ## Using vegetation indices
