@@ -2,10 +2,6 @@
 A project for quantifying per capita green space in Karachi, Pakistan
 
 
-# greenSpaceAnalysis
-A project for quantifying green spaces for union councils in Karachi city, Pakistan.
- 
-
 ## Using deep learning semantic segmentation model
 
 Pixel level annotations for three vegetation classes: Tree, Shrub, Grass are made using Labelbox. A preview of the labeling interface:
