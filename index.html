@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>greenspace</title>
+  <style>
+    body {
+      background-position: left top, left 900px, left 1800px;
+      background-size: 1300px;
+      background-repeat: no-repeat, no-repeat, repeat-y;
+      background-image: url('image/goose.jpg'), url('image/IMG_2712.jpg'), url('image/20211123_145131.jpg');
+
+    }
+    .content {
+      max-width: 730px;
+      margin: auto;
+      background: rgba(0, 0, 0, 0.6);
+      padding: 10px;
+      /*background-image: url('IMG_2646.jpg');*/
+    }
+    h1 {
+      text-align: center;
+      font-size: 25px;
+      font-family: Verdana;
+      color: white;
+    }
+    h2 {
+      text-align: center;
+      font-size: 23px;
+      font-family: Verdana;
+      color: white;
+    }
+    h3 {
+      font-size: 21px;
+      font-family: Verdana;
+      color: white;
+    }
+    p {
+      font-size: 15px;
+      line-height: 1.7;
+      font-family: Verdana;
+      color: white;
+    }
+    img {
+      width: 500px;
+    }
+    .center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .column {
+      float: left;
+      width: 40%;
+      padding: 10px;
+    }
+    .row::after {
+      content: "";
+      clear: both;
+      display: table;
+    }
+  </style>
+</head>
+<body>
+<div class="content">
+  <h2>NYU Center for Health Data Science</h2>
+  <br>
+  <h1>Quantifying greenspace of Karachi City, Pakistan using high-resolution satellite image</h1>
+
+  <br>
+  <br>
+  <br>
+  <img src="image/image1.png" alt="Image 1", width="700", height="400", class="center">
+  <br>
+
+  <p>
+    Greenspaces in communities are critical for mitigating effects of climate change and have important impacts on our health. We demonstrate a deep learning-based approach which includes green augmentation for measuring and delineating types of greenspace in a city, with satellite imagery. In this project, we demonstrate a deep learning-based approach which includes green augmentation for measuring and delineating types of greenspace in a city, with satellite imagery. Given the global importance of greenspaces for improved planetary and human health, this method is relevant to, and can be extended to locations worldwide.
+  </p>
+  
+  <br>
+  <h3>Fine-grained maps of per-capita greenspace</h3>
+  
+  <p>As an overall examination of greenspace in the city, we compute per capita greenspace. The mean per capita greenspace across union councils (smallest administrative level in Karachi) is 2.84 sq.m/person. The greenspace availability also varies highly across union councils; the union council with the highest value reaches 37.59 sq.m/capita, while 6 union councils with the lowest values have greenspace less than 0.1 sq.m/capita.</p>
+  
+  <br>
+  <h3>Approach</h3>
+  
+  <p>
+    We label satellite images manually, pixel-wise, to identify greenspaces across Karachi City. We train a deep learning based semantic segmentation model with an enhanced image augmentation approach for segmenting vegetation type: Tree and Grass.  Our method outperforms gold standard methods which use vegetation indices; it segments 80.68% of the greenspace, and correctly assigns 83.63% of image pixels as greenspace or not, while the best performing vegetation index only detects 58.11% of the greenspace of which 56.71% of predictions are correct.
+  </p>
+  <br>
+  
+  <img src="image/image3.png" alt="Image 3", class="center">
+  <br>
+  <img src="image/image4.png" alt="Image 4", class="center">
+  
+  <br>
+  <h3>Related link</h3>
+  
+  <ul>
+    <li><a href="https://github.com/ChunaraLab/GreenSpaceAnalysis/tree/main" style="color:rgb(175, 225, 175); font-family:Verdana">GitHub repository</a></li>
+    <li><a href="https://github.com/ChunaraLab/GreenSpaceAnalysis/blob/main/Image_location.zip" style="color:rgb(175, 225, 175); font-family:Verdana;">Data location file</a></li>
+    <li><a href="https://drive.google.com/drive/folders/1JmGr1TuPsozN3zzU1k3Qzw-sSL1OCI_f?usp=sharing" style="color:rgb(175, 225, 175); font-family:Verdana">Karachi city greenspace annotation download</a></li>
+  </ul>
+  <br>
+  <br>
+  <br>
+  <h3>Our team</h3>
+<!--   <p>Miao Zhang</p> -->
+  <br>
+  <div class="row">
+    <div class="column">
+      <img src="image/nyu-logo.svg" alt="Image_nyu" style="width:100%; margin-top:-60px">
+    </div>
+    <div class="column">
+      <img src="image/aku.png" alt="Image_aku" style="width:90%">
+    </div>
+  </div>
+<!--   <img src="nyu-logo.svg" alt="Image_nyu", width="100", height="300", class="left">
+  <img src="aku.png" alt="Image_aku", width="60", height="200", class="right"> -->
+</div>
+
+</body>
+</html>
