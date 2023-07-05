@@ -41,7 +41,7 @@
       color: white;
     }
     img {
-      width: 500px;
+      width: 470px;
     }
     .center {
       display: block;
@@ -74,7 +74,7 @@
   <br>
 
   <p>
-    Greenspaces in communities are critical for mitigating effects of climate change and have important impacts on our health. We demonstrate a deep learning-based approach which includes green augmentation for measuring and delineating types of greenspace in a city, with satellite imagery. In this project, we demonstrate a deep learning-based approach which includes green augmentation for measuring and delineating types of greenspace in a city, with satellite imagery. Given the global importance of greenspaces for improved planetary and human health, this method is relevant to, and can be extended to locations worldwide.
+    Greenspaces in communities are critical for mitigating effects of climate change and have important impacts on our health. In Karachi city, Pakistan, we demonstrate a deep learning-based approach which includes green augmentation for measuring and delineating types of greenspace, with 0.15m high-resolution satellite imagery. Given the global importance of greenspaces for improved planetary and human health, this method is relevant to, and can be extended to locations worldwide.
   </p>
   
   <br>
@@ -86,7 +86,23 @@
   <h3>Approach</h3>
   
   <p>
-    We label satellite images manually, pixel-wise, to identify greenspaces across Karachi City. We train a deep learning based semantic segmentation model with an enhanced image augmentation approach for segmenting vegetation type: Tree and Grass.  Our method outperforms gold standard methods which use vegetation indices; it segments 80.68% of the greenspace, and correctly assigns 83.63% of image pixels as greenspace or not, while the best performing vegetation index only detects 58.11% of the greenspace of which 56.71% of predictions are correct.
+    We label 463 satellite images manually, pixel-wise, to identify greenspace type: Tree, Shrub, and Grass across Karachi City.
+
+    (Our labeling team: Hajra Arshad, Manzar Abbas, Hamzah Jehanzeb, Izza Tahir, and Javerya Hassan from Aga Khan University)
+  </p>
+
+  <p>
+    We train a deep learning based semantic segmentation model with an enhanced image augmentation approach for segmenting Tree and Grass. By shifting the hue value of the original images, new images are generated which depict the same vegetation objects but with a new color. The augmented images reduce model over-fitting to the training data and increase generalizability to different shades of green.
+  </p>
+
+  <img src="image/pipeline.png" alt="pipeline", class="center">
+  <br>
+  <br>
+
+  <p>
+
+    Deep learning method with green color augmentation outperforms gold standard methods which use vegetation indices; it segments 80.68% of the greenspace, and correctly assigns 83.63% of image pixels as greenspace or not, while the best performing vegetation index only detects 58.11% of the greenspace of which 56.71% of predictions are correct.
+
   </p>
   <br>
   
@@ -105,7 +121,7 @@
   <br>
   <br>
   <br>
-  <h3>Our team</h3>
+<!--   <h3>Our team</h3> -->
 <!--   <p>Miao Zhang</p> -->
   <br>
   <div class="row">
