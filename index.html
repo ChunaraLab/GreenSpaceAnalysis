@@ -25,7 +25,7 @@
     }
     h2 {
       text-align: center;
-      font-size: 23px;
+      font-size: 22px;
       font-family: Verdana;
       color: white;
     }
@@ -63,9 +63,9 @@
 </head>
 <body>
 <div class="content">
-  <h2>NYU Center for Health Data Science</h2>
+  <h2><a href="http://healthdatasci.org"><img src='image/Icon-GREEN.png' alt="icon" style="width:9%; vertical-align:middle; margin:0px 14px"/></a>NYU Center for Health Data Science</h2>
   <br>
-  <h1>Quantifying greenspace of Karachi City, Pakistan using high-resolution satellite image</h1>
+  <h1>Quantifying greenspace of Karachi, Pakistan using high-resolution satellite image</h1>
 
   <br>
   <br>
@@ -80,43 +80,50 @@
   <br>
   <h3>Fine-grained maps of per-capita greenspace</h3>
   
-  <p>As an overall examination of greenspace in the city, we compute per capita greenspace. The mean per capita greenspace across union councils (smallest administrative level in Karachi) is 2.84 sq.m/person. The greenspace availability also varies highly across union councils; the union council with the highest value reaches 37.59 sq.m/capita, while 6 union councils with the lowest values have greenspace less than 0.1 sq.m/capita.</p>
+  <p>Highly granular greenspace mapping via this method enables us to compute how much greenspace is available by neighborhood in the city. We found that the greenspace availability also varies highly across union councils; some union councils have over 30 m<sup>2</sup> per person (these are union councils on the periphery of the city with large agricultural lands) while 6 union councils with the lowest amount have less than just 0.1 m<sup>2</sup> per person. The average greenspace per person across union councils (smallest administrative level in Karachi) is 2.84 m<sup>2</sup>/person which significantly lags World Health Organization recommendations (minimum of 9 m<sup>2</sup> per person and an ideal value of 50 m<sup>2</sup> per person).</p>
   
   <br>
-  <h3>Approach</h3>
+  <h3>How we did it</h3>
   
   <p>
-    We label 463 satellite images manually, pixel-wise, to identify greenspace type: Tree, Shrub, and Grass across Karachi City.
-
-    (Our labeling team: Hajra Arshad, Manzar Abbas, Hamzah Jehanzeb, Izza Tahir, and Javerya Hassan from Aga Khan University)
+    1) With expertise and local knowledge of Karachi surroundings, we first labelled a sample (over 400) of satellite images across the city at the pixel level to identify greenspaces by type: Tree, Shrub, and Grass. *Our labeling team*: Hajra Arshad, Manzar Abbas, Hamzah Jehanzeb, Izza Tahir, and Javerya Hassan from Aga Khan University.
+  </p>
+  <p>
+    2) Next, we trained a deep learning model which we enhanced using a new method to adjust green light in an image and better detect Trees and Grass. 
+  </p>
+  <p>
+    The below figure shows the exact pipeline of how our method works. See our <a href="https://eartharxiv.org/repository/view/5548/" style="color:rgb(175, 225, 175); font-family:Verdana">paper</a> if you are interested in the details.
   </p>
 
   <p>
-    We train a deep learning based semantic segmentation model with an enhanced image augmentation approach for segmenting Tree and Grass. By shifting the hue value of the original images, new images are generated which depict the same vegetation objects but with a new color. The augmented images reduce model over-fitting to the training data and increase generalizability to different shades of green.
+    3) Last, we use the model to identify where all Trees, Shrubs and Grass are in unlabelled images covering the entire area of Karachi.
   </p>
 
-  <img src="image/pipeline.png" alt="pipeline", class="center">
+  <br>
+
+  <img src="image/pipeline.png" alt="pipeline", class="center", style="width:70%">
   <br>
   <br>
 
   <p>
-
-    Deep learning method with green color augmentation outperforms gold standard methods which use vegetation indices; it segments 80.68% of the greenspace, and correctly assigns 83.63% of image pixels as greenspace or not, while the best performing vegetation index only detects 58.11% of the greenspace of which 56.71% of predictions are correct.
-
+    4) Finally, the below figure and table show how our method outperforms existing gold standard methods for vegetation detection, which use combinations of different colors of images to identify greenspaces (GRVI, VARI, GLI). DeepLabv3+ (Aug), which is our method with green color augmentation, segments 80.7% of the greenspace, and correctly assigns 83.6% of image pixels as greenspace or not, while the best performing vegetation index only detects 58.1% of the greenspace of which 56.7% of predictions are correct.
   </p>
+
   <br>
   
   <img src="image/image3.png" alt="Image 3", class="center">
   <br>
+  <br>
   <img src="image/image4.png" alt="Image 4", class="center">
   
   <br>
-  <h3>Related link</h3>
+  <h3>Related links</h3>
   
   <ul>
-    <li><a href="https://github.com/ChunaraLab/GreenSpaceAnalysis/tree/main" style="color:rgb(175, 225, 175); font-family:Verdana">GitHub repository</a></li>
-    <li><a href="https://github.com/ChunaraLab/GreenSpaceAnalysis/blob/main/Image_location.zip" style="color:rgb(175, 225, 175); font-family:Verdana;">Data location file</a></li>
-    <li><a href="https://drive.google.com/drive/folders/1JmGr1TuPsozN3zzU1k3Qzw-sSL1OCI_f?usp=sharing" style="color:rgb(175, 225, 175); font-family:Verdana">Karachi city greenspace annotation download</a></li>
+    <li><a href="https://github.com/ChunaraLab/GreenSpaceAnalysis/tree/main" style="color:rgb(175, 225, 175); font-family:Verdana">Code for the project</a></li>
+    <li><a href="https://github.com/ChunaraLab/GreenSpaceAnalysis/blob/main/Image_location.zip" style="color:rgb(175, 225, 175); font-family:Verdana;">Link to the location of all images in the study</a></li>
+    <li><a href="https://drive.google.com/drive/folders/1JmGr1TuPsozN3zzU1k3Qzw-sSL1OCI_f?usp=sharing" style="color:rgb(175, 225, 175); font-family:Verdana">Download of our Karachi image annotations</a></li>
+    <li><a href="https://eartharxiv.org/repository/view/5548" style="color:rgb(175, 225, 175); font-family:Verdana">Eartharxiv link</a></li>
   </ul>
   <br>
   <br>
@@ -126,10 +133,10 @@
   <br>
   <div class="row">
     <div class="column">
-      <img src="image/nyu-logo.svg" alt="Image_nyu" style="width:100%; margin-top:-60px">
+      <a href="http://healthdatasci.org"><img src="image/nyu-logo.png" alt="Image_nyu" style="width:45%; margin-left:120px; margin-top:-15px"></a>
     </div>
     <div class="column">
-      <img src="image/aku.png" alt="Image_aku" style="width:90%">
+      <a href="https://www.aku.edu/mcpk/data-science/Pages/home.aspx"><img src="image/aku.png" alt="Image_aku" style="width:90%; margin-left:40px;"></a>
     </div>
   </div>
 <!--   <img src="nyu-logo.svg" alt="Image_nyu", width="100", height="300", class="left">
