@@ -78,7 +78,6 @@
   <script>
 
     jQuery.getJSON('map4_1.json', function(data) {
-      alert(data.length);
       const margin = ({top: 20, right: 0, bottom: 0, left: 10});
       const mapWidth = 640 - margin.left - margin.right;
       const mapHeight = 640 - margin.top - margin.bottom;
@@ -119,7 +118,7 @@
         .attr('font-size', 22)
         .style("fill", "white");
 
-      // draw map
+
 
       function textArt(text){
         // Use random font
@@ -130,65 +129,6 @@
           .style('font-family', fontFamily)
           .text(text);
 
-        // Use dummy text to compute actual width of the text
-        // getBBox() will return bounding box
-        dummyText
-          .style('font-family', fontFamily)
-          .text(text);
-        var bbox = dummyText.node().getBBox();
-
-        var textWidth = bbox.width;
-        var textHeight = bbox.height;
-        var xGap = 3;
-        var yGap = 1;
- 
-        // Generate the positions of the text in the background
-        var xPtr = 0;
-        var yPtr = 0;
-        var positions = [];
-        var rowCount = 0;
-        while(yPtr < height){
-          while(xPtr < width){
-            var point = {
-              text: text,
-              index: positions.length,
-              x: xPtr,
-              y: yPtr
-            };
-            var dx = point.x - width/2 + textWidth/2;
-            var dy = point.y - height/2;
-            point.distance = dx*dx + dy*dy;
-
-            positions.push(point);
-            xPtr += textWidth + xGap;
-          }
-          rowCount++;
-          xPtr = rowCount%2===0 ? 0 : -textWidth/2;
-          xPtr += Math.random() * 10;
-          yPtr += textHeight + yGap;
-        }
-
-        var selection = effectLayer.selectAll('text')
-        .data(positions, function(d){return d.text+'/'+d.index;});
-
-        // Clear old ones
-        selection.exit().transition()
-          .style('opacity', 0)
-          .remove();
-
-        // Create text but set opacity to 0
-        const textEnter = selection.enter().append('text')
-          .text(function(d){return d.text;})
-          .attr('x', function(d){return d.x;})
-          .attr('y', function(d){return d.y;})
-          .style('font-family', fontFamily)
-          .style('fill', '#777')
-          .style('opacity', 0);
-
-        selection.merge(textEnter)
-          .style('font-family', fontFamily)
-          .attr('x', function(d){return d.x;})
-          .attr('y', function(d){return d.y;});
       }
 
       function fillFn(d){
@@ -196,7 +136,7 @@
       }
 
       function nameFn(d){
-        return  d && d.properties ? d.properties.UC+": "+ parseFloat(d.properties.sourcePOP).toFixed(2) + "  m" + "2" + " per person" : "NA";
+        return  d && d.properties ? d.properties.UC+": "+ parseFloat(d.properties.sourcePOP).toFixed(2) + "  sq.m" + " per person" : "NA";
       }
 
       // Get province name length
@@ -286,7 +226,7 @@
   <br>
   <h3>Fine-grained maps of per-capita greenspace</h3>
   
-  <p>Highly granular greenspace mapping via this method enables us to compute how much greenspace is available by neighborhood in the city. We found that the greenspace availability also varies highly across union councils; some union councils have over <b>30 m<sup>2</sup> per person</b> (these are union councils on the periphery of the city with large agricultural lands) while 6 union councils with the lowest amount have less than just <b>0.1 m<sup>2</sup> per person</b>. The average greenspace per person across union councils (smallest administrative level in Karachi) is <b>2.84 m<sup>2</sup>/person</b> which significantly lags <a href="https://www.who.int/teams/environment-climate-change-and-health/healthy-urban-environments/urban-planning" style="color:rgb(175, 225, 175)">World Health Organization</a> recommendations (minimum of 9 <b>m<sup>2</sup> per person</b> and an ideal value of <b>50 m<sup>2</sup> per person)</b>.</p>
+  <p>Highly granular greenspace mapping via this method enables us to compute how much greenspace is available by neighborhood in the city (Only populated areas are considered). We found that the greenspace availability also varies highly across union councils; some union councils have over <b>30 m<sup>2</sup> per person</b> (these are union councils on the periphery of the city with large agricultural lands) while 6 union councils with the lowest amount have less than just <b>0.1 m<sup>2</sup> per person</b>. The average greenspace per person across union councils (smallest administrative level in Karachi) is <b>2.84 m<sup>2</sup>/person</b> which significantly lags <a href="https://www.who.int/teams/environment-climate-change-and-health/healthy-urban-environments/urban-planning" style="color:rgb(175, 225, 175)">World Health Organization</a> recommendations (minimum of 9 <b>m<sup>2</sup> per person</b> and an ideal value of <b>50 m<sup>2</sup> per person)</b>.</p>
   
   <br>
   <h3>How we did it</h3>
