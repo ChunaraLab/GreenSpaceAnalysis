@@ -117,14 +117,14 @@
         .classed('big-text', true)
         .attr('x', 10)
         .attr('y', 30)
-        .attr('font-size', 19)
+        .attr('font-size', 18)
         .style("fill", "white");
 
       var bigText3 = g.append('text')
         .classed('big-text', true)
         .attr('x', 10)
         .attr('y', 30)
-        .attr('font-size', 19)
+        .attr('font-size', 18)
         .style("fill", "white");
 
       var myimage1 = g.append('image')
@@ -202,7 +202,7 @@
       }
 
       function nameFn2(d){
-        return  d && d.properties ? parseFloat(d.properties.sourcePOP).toFixed(2) + "  sq.m greenspace" + " per person" : "NA";
+        return  d && d.properties ? parseFloat(d.properties.sourcePOP).toFixed(2) + "  square meter greenspace" + " per person" : "NA";
       }
 
       // When clicked, zoom in
