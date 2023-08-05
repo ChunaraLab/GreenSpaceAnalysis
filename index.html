@@ -8,10 +8,10 @@
   <script src="https://d3js.org/d3.v5.js"></script>
   <style>
     body {
-      background-position: left top, left 900px, left 1800px, left 2700px;
+      background-position: left top, left 900px, left 1800px, left 2700px, left 3600px;
       background-size: 1300px;
-      background-repeat: no-repeat, no-repeat, no-repeat, repeat-y;
-      background-image: url('image/goose.jpg'), url('image/IMG_2712.jpg'), url('image/playground.jpg'), url('image/20211123_145131.jpg');
+      background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, repeat-y;
+      background-image: url('image/goose.jpg'), url('image/IMG_2712.jpg'), url('image/playground.jpg'), url('image/20211123_145131.jpg'), url('image/garden.jpg');
 
     }
     .content {
@@ -67,14 +67,16 @@
 </head>
 <body>
 <div class="content">
-  <h2><a href="http://healthdatasci.org" style="color:rgb(255, 255, 255);text-decoration: none"><img src='image/Icon-GREEN.png' alt="icon" style="width:9%; vertical-align:middle; margin:0px 14px"/>NYU Center for Health Data Science</a></h2>
+<!--   <h2><a href="http://healthdatasci.org" style="color:rgb(255, 255, 255);text-decoration: none"><img src='image/Icon-GREEN.png' alt="icon" style="width:9%; vertical-align:middle; margin:0px 14px"/>NYU Center for Health Data Science</a></h2> -->
+  <img src="image/Main HORZ-Colour.png" alt="HORZ", class="center", style="width:50%">
+  <br>
   <h1>Quantifying greenspace of Karachi, Pakistan using high-resolution satellite imagery and deep learning</h1>
 
   <br>
   <br>
   <br>
 
-  <svg id="myPlot" style="width:700px;height:700px"></svg>
+  <svg id="myPlot" style="width:700px;height:650px"></svg>
   <script>
 
     jQuery.getJSON('map4_1.json', function(data) {
@@ -109,21 +111,21 @@
       var bigText1 = g.append('text')
         .classed('big-text', true)
         .attr('x', 10)
-        .attr('y', 0)
+        .attr('y', 15)
         .attr('font-size', 20)
         .style("fill", "white");
 
       var bigText2 = g.append('text')
         .classed('big-text', true)
         .attr('x', 10)
-        .attr('y', 30)
+        .attr('y', 45)
         .attr('font-size', 19)
         .style("fill", "white");
 
       var bigText3 = g.append('text')
         .classed('big-text', true)
         .attr('x', 10)
-        .attr('y', 30)
+        .attr('y', 45)
         .attr('font-size', 19)
         .style("fill", "white");
 
@@ -280,7 +282,14 @@
  
   </script>
 
+  <p style="font-size:80%;text-align:right">
+    *Hover over each Union Council to see example greenspaces and per capita greenspace.*
+  </p>
+  <p style="font-size:80%;text-align:right">
+    *Click to zoom in to highlight the Union Council area.*
+  </p>
 
+  <br>
   <p>
     Greenspaces in communities are critical for mitigating effects of climate change and have important impacts on our health. In Karachi city, Pakistan, we demonstrate a deep learning-based approach which includes green augmentation for measuring and delineating types of greenspace, with 0.15m high-resolution satellite imagery. Given the global importance of greenspaces for improved planetary and human health, this method is relevant to, and can be extended to locations worldwide.
   </p>
