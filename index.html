@@ -76,11 +76,11 @@
   <br>
   <br>
 
-  <svg id="myPlot" style="width:700px;height:650px"></svg>
+  <svg id="myPlot" style="width:750px;height:650px"></svg>
   <script>
 
     jQuery.getJSON('map4_1.json', function(data) {
-      const margin = ({top: 20, right: 0, bottom: 0, left: 10});
+      const margin = ({top: 20, right: 0, bottom: 0, left: 5});
       const mapWidth = 640 - margin.left - margin.right;
       const mapHeight = 640 - margin.top - margin.bottom;
 
@@ -112,47 +112,47 @@
         .classed('big-text', true)
         .attr('x', 10)
         .attr('y', 15)
-        .attr('font-size', 20)
+        .attr('font-size', 19)
         .style("fill", "white");
 
       var bigText2 = g.append('text')
         .classed('big-text', true)
         .attr('x', 10)
-        .attr('y', 45)
-        .attr('font-size', 19)
+        .attr('y', 70)
+        .attr('font-size', 18)
         .style("fill", "white");
 
       var bigText3 = g.append('text')
         .classed('big-text', true)
         .attr('x', 10)
         .attr('y', 45)
-        .attr('font-size', 19)
+        .attr('font-size', 16)
         .style("fill", "white");
 
       var myimage1 = g.append('image')
         .attr('x', 0)
-        .attr('y', 80)
+        .attr('y', 90)
         .attr("xlink:href", "")
         .attr('height', 120)
         .attr('width', 120);
 
       var myimage2 = g.append('image')
         .attr('x', 130)
-        .attr('y', 80)
+        .attr('y', 90)
         .attr("xlink:href", "")
         .attr('height', 120)
         .attr('width', 120);
 
       var myimage3 = g.append('image')
         .attr('x', 0)
-        .attr('y', 210)
+        .attr('y', 220)
         .attr("xlink:href", "")
         .attr('height', 120)
         .attr('width', 120);
 
       var myimage4 = g.append('image')
         .attr('x', 130)
-        .attr('y', 210)
+        .attr('y', 220)
         .attr("xlink:href", "")
         .attr('height', 120)
         .attr('width', 120);
@@ -174,6 +174,16 @@
         var fontFamily = FONTS[fontIndex] + ', ' + BASE_FONT;
 
         bigText2
+          .style('font-family', fontFamily)
+          .text(text);
+      }
+
+      function textArt3(text){
+        // Use random font
+        var fontIndex = Math.round(Math.random() * FONTS.length);
+        var fontFamily = FONTS[fontIndex] + ', ' + BASE_FONT;
+
+        bigText3
           .style('font-family', fontFamily)
           .text(text);
       }
@@ -200,11 +210,15 @@
       }
 
       function nameFn1(d){
-        return  d && d.properties ? d.properties.UC+": " : "NA";
+        return  d && d.properties ? d.properties.UC.substring(d.properties.UC.split(" ")[0].length+1)+": " : "NA";
       }
 
       function nameFn2(d){
         return  d && d.properties ? parseFloat(d.properties.sourcePOP).toFixed(2) + "  square meter greenspace" + " per person" : "NA";
+      }
+
+      function nameFn3(d){
+        return  d && d.properties ? d.properties.Description : "NA";
       }
 
       // When clicked, zoom in
@@ -242,6 +256,7 @@
         // Draw effects
         textArt1(nameFn1(d));
         textArt2(nameFn2(d));
+        textArt3(nameFn3(d));
         imgArt(d.properties.imgList, d.properties.UC);
       }
 
