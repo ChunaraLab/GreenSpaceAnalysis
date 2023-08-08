@@ -110,7 +110,7 @@
 
       var bigText1 = g.append('text')
         .classed('big-text', true)
-        .attr('x', 5)
+        .attr('x', 2)
         .attr('y', 15)
         .attr('font-size', 19)
         .style("fill", "white");
@@ -119,7 +119,7 @@
         .classed('big-text', true)
         .attr('x', 0)
         .attr('y', 45)
-        .attr('font-size', 18)
+        .attr('font-size', 17.6)
         .style("fill", "white");
 
       var bigText3 = g.append('text')
@@ -218,7 +218,7 @@
       }
 
       function nameFn3(d){
-        return  d && d.properties ? d.properties.Description : "NA";
+        return  d && d.properties ? d.properties.Description[0].toUpperCase() + d.properties.Description.substring(1) : "NA";
       }
 
       // When clicked, zoom in
