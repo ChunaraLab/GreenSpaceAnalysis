@@ -2,17 +2,17 @@
 A project for quantifying per capita green space in Karachi, Pakistan
 
 
-## Using deep learning semantic segmentation model
+## Karachi dataset for semantic segmentation
 
-Pixel level annotations for three vegetation classes: Tree, Shrub, Grass are made using Labelbox. A preview of the labeling interface:
+Pixel level annotations for three vegetation classes: Tree, Shrub, Grass are made using Labelbox. 
+
+A preview of the labeling interface:
 
 <img width="896" alt="Screenshot 2023-06-12 at 9 23 13 PM" src="https://github.com/ChunaraLab/GreenSpaceAnalysis/assets/30038903/db48e5f2-c0e5-44e2-b9a4-5caad5e878ff">
 
 
 
-Raw satellite images are anquired from Google Maps API. 
-
-Image locations can be found in ```` Image_location.zip ````. It includes the geo-coordinates for each downloaded/labeled image. Source images are not public. 
+Raw satellite images should be anquired from Google Maps API: Image locations can be found in ```` Image_location.zip ````. It includes the geo-coordinates for each downloaded/labeled image. Source images are not public. 
 
 Manually labeled masks can be accessed at: https://drive.google.com/drive/folders/1JmGr1TuPsozN3zzU1k3Qzw-sSL1OCI_f?usp=sharing. 
 
