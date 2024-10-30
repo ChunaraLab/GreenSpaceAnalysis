@@ -1,5 +1,7 @@
 # GreenSpaceAnalysis
-A project for quantifying per capita green space in Karachi, Pakistan
+A project for quantifying per capita green space in Karachi, Pakistan. 
+
+Check out the interactive website at: https://chunaralab.github.io/GreenSpaceAnalysis/
 
 
 ## Karachi dataset for semantic segmentation
