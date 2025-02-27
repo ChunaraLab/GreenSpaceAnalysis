@@ -70,7 +70,7 @@
 <!--   <h2><a href="http://healthdatasci.org" style="color:rgb(255, 255, 255);text-decoration: none"><img src='image/Icon-GREEN.png' alt="icon" style="width:9%; vertical-align:middle; margin:0px 14px"/>NYU Center for Health Data Science</a></h2> -->
   <img src="image/Main HORZ-Colour-whitetext.png" alt="HORZ", class="center", style="width:40%">
   <br>
-  <h1>Quantifying greenspace with satellite imagery in Karachi, Pakistan using a new data augmentation paradigm</h1>
+  <h1>Quantifying greenspace in Karachi, Pakistan with high-resolution satellite imagery</h1>
 
   <br>
   <br>
@@ -306,7 +306,7 @@
 
   <br>
   <p>
-    Greenspaces in communities are critical for mitigating effects of climate change and have important impacts on our health. In Karachi city, Pakistan, we demonstrate a deep learning-based approach which obtains state-of-the-art performance with a novel color space augmentation method. Our approach is applied on 0.27 m high-resolution satellite imagery to quantify greenspace for the whole city. Given the global importance of greenspaces for improved planetary and human health, this method is relevant to, and can be extended to locations worldwide.
+    Greenspaces in communities are critical for mitigating effects of climate change and have important impacts on our health. In Karachi city, Pakistan, we demonstrate a deep learning-based approach with novel color space augmentation. Our approach is applied on 0.27 m high-resolution satellite imagery to quantify greenspace for the whole city. Given the global importance of greenspaces for improved planetary and human health, this method is relevant to, and can be extended to locations worldwide.
   </p>
   
   <br>
@@ -318,13 +318,13 @@
   <h3>How we did it</h3>
   
   <p>
-    1) With expertise and local knowledge of Karachi surroundings, we first labelled a sample (over 400) of satellite images across the city at the pixel level to identify greenspaces by type: Tree and Grass.
+    1) With expertise and local knowledge of Karachi surroundings, we first labelled a sample (over 400) of satellite images of size 1024*1024 across the city at the pixel level to identify greenspaces by type: Tree and Grass.
   </p>
   <p>
-    2) Next, we trained a deep learning model which we enhanced using a new method to adjust green light in an image and better detect Trees and Grass. 
+    2) Next, we trained a deep learning based semantic segmentation model to detect Trees and Grass. We propose an efficient augmentation method which adjusts green hue to simulate various greenspace appearances. The method outperforms state-of-the-art methods such as DeepLabV3+ by 14.8%.
   </p>
   <p>
-    The below figure shows the exact pipeline of how our method works. See our <a href="https://eartharxiv.org/repository/view/5548/" style="color:rgb(175, 225, 175); font-family:Verdana">paper</a> if you are interested in the details.
+    The below figure shows the exact pipeline of how our method works. See our <a href="https://dl.acm.org/doi/pdf/10.1145/3716370" style="color:rgb(175, 225, 175); font-family:Verdana">paper</a> if you are interested in the details.
   </p>
 
   <p>
