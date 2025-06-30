@@ -1,0 +1,1 @@
+Please download the pre-trained green space segmentation model weights at https://drive.google.com/file/d/1Y7fADUKqvwWmkcf8kAX6RVaSrPotmMtV/view?usp=sharing
