@@ -30,5 +30,5 @@ def custom_transforms(image, mask):
     hsvb[:, :, 0] = hsvb_new
             
     norm_image = cv2.normalize(hsv2rgb(hsvb),None,alpha=0, beta=255, norm_type=cv2.NORM_MINMAX, dtype=cv2.CV_32F).astype(np.uint8)
-            return norm_image
+    return norm_image
             
