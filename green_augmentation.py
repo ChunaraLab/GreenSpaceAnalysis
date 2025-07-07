@@ -1,4 +1,5 @@
 def custom_transforms(image, mask):
+    # Applying green hue shifts to only greenspace pixels in an image, indicated by mask
     b = image
     hsvb = rgb2hsv(b)
     hsvb_old = hsvb[:, :, 0]
